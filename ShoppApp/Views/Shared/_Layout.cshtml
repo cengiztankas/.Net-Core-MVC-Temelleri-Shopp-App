@@ -1,0 +1,70 @@
+@using shoppApp.Models
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/css/style.css">
+    <title>Product</title>
+
+    <script type="text/javascript">
+    (function () {
+        var options = {
+            whatsapp: "905520079247",
+            call_to_action: "Merhaba, nasıl yardımcı olabilirim?",
+            
+            position: "right",
+            
+        };
+        var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+</script>
+</head>
+<body>
+   @if( @IsSectionDefined("MessageBox")){
+    @RenderSection("MessageBox",false)  @*ilk paramatre section ismi ikincisi her sayafada kullaılsın mı? *@
+   }
+   else{
+    <div class="alert alert-primary text-center">
+        Wellcome!
+    </div>
+   }
+
+   
+
+    @await Html.PartialAsync("_navbar")
+    <partial name="_Header"> 
+     @* bu kod _navbar dosyasını buraya taşımaktadır.. *@
+  
+
+
+    <main >
+      <div class="container ">
+          @if(IsSectionDefined("Categories")){
+            <div class="row">
+                <div class="col-md-3">
+                    @RenderSection("Categories",false)
+                </div>
+                <div class="col-md-9">
+                    @RenderBody()
+                </div>
+            </div>
+          }else{
+            <div class="col-md-12">
+                @RenderBody()
+            </div>
+          }
+      </div>
+    </main>
+</body>
+
+<footer class="bg-dark text-white text-center py-4 ">
+Shopp App | 2023
+</footer>
+</html>

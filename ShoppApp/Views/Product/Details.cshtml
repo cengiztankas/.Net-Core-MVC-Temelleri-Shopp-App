@@ -1,0 +1,27 @@
+@* modelim "m" si burada küçük yazılır. *@
+@model Product
+@{
+    Layout="_Layout";
+}
+    
+
+<div class="card mb-3 ">
+    <div class="card-body">
+        <div class="row no-gutter">
+            <div class="col-3">
+                <img class="w-100" src="~/images/@Model.ImageUrl">
+            </div>
+            <div class="col-9">
+                <h3 class="card-title">@Model.Name</h3>
+                <h5 class="card-text bold">@Model.Price $</h5>
+                <p class="card-text">
+                    @Model.Description
+                </p>
+                <p class="card-text">
+                    <small class="text-muted">3 days ago</small>
+                    <p>@Model.CategoryId</p>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

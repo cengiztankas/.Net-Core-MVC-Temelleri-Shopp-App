@@ -1,0 +1,24 @@
+@model ProductViewModel
+@{
+    Layout="_Layout";
+}
+@* _layout sayfasında tanımlandı ve burda çağırdık *@
+@section MessageBox{
+    <div class="alert alert-danger text-center m-0">
+        You have a message!
+    </div>
+}
+
+@foreach (var p in Model.Products)
+{
+    <li>
+         @p.Name
+    </li>
+}
+<div class="row">
+<div class="col-6">
+    <img src="~/images/iphone.jpeg" alt="">
+    marhablar burası ana sayfa
+</div>
+<div class="col-6">nasılsınız</div>
+</div>s
